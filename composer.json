@@ -1,0 +1,17 @@
+{
+	"name": "pierre/titanic",
+	"authors": [
+		{
+			"name": "Pierre Migne",
+			"email": "pierre.migne@hotmail.fr"
+		}
+	],
+	"require": {
+		"php-ds/php-ds": "^1.4"
+	},
+	"autoload": {
+		"psr-4": {
+			"App\\": "src/"
+		}
+	}
+}
