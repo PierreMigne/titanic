@@ -5,18 +5,33 @@ namespace App\model;
 class Person
 {
     public function __construct(
-        public string $passengerId = "",
-        public string $survived = "",
-        public string $pclass = "",
-        public string $name = "",
-        public string $sex = "",
-        public string $age = "",
-        public string $sibSp = "",
-        public string $parch = "",
-        public string $ticket = "",
-        public string $fare = "",
-        public string $cabin = "",
-        public string $embarked = ""
+        private string $passengerId = "",
+        private string $survived = "",
+        private string $pclass = "",
+        private string $name = "",
+        private string $sex = "",
+        private string $age = "",
+        private string $sibSp = "",
+        private string $parch = "",
+        private string $ticket = "",
+        private string $fare = "",
+        private string $cabin = "",
+        private string $embarked = ""
     ) {
+    }
+
+    public function getSurvived()
+    {
+        return $this->survived;
+    }
+
+    public function getSex()
+    {
+        return $this->sex;
+    }
+
+    public function getPclass()
+    {
+        return $this->pclass;
     }
 }

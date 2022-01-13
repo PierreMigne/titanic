@@ -2,6 +2,8 @@
 
 use App\AllPeoples;
 use App\observer\ChanceBySex;
+use App\observer\ChanceBySexAndClass;
+use App\Passanger;
 use App\ReadIterator;
 use App\SurvivedPeoples;
 
@@ -48,3 +50,17 @@ print("La proportion de femmes de la classe 2 qui ont survécu dans le Titanic e
 
 $proportionOfFemaleWhoSurvivedInClass3 = round($allPeoples->findAllSurvivorsBySexAndClass('female', '3') / $nbOfPeoples * 100, 2);
 print("La proportion de femmes de la classe 3 qui ont survécu dans le Titanic est de " . $proportionOfFemaleWhoSurvivedInClass3 . '%' . PHP_EOL);
+
+
+$passagerMale = new Passanger();
+$passagerMale->attach(new ChanceBySex($allPeoples));
+$passagerMale->setPerson(name: "Alan", sex: "male", pclass: '1');
+
+$passagerFemale = new Passanger();
+$passagerFemale->attach(new ChanceBySex($allPeoples));
+$passagerFemale->setPerson(name: "Elsa", sex: "female", pclass: '2');
+
+
+$passagerMaleClass1 = new Passanger();
+$passagerMaleClass1->attach(new ChanceBySexAndClass($allPeoples));
+$passagerMaleClass1->setPerson(name: "Alan", sex: "male", pclass: '1');

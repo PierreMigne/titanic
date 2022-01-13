@@ -16,6 +16,11 @@ class AllPeoples
         $this->storage = new Map();
     }
 
+    public function getStorage()
+    {
+        return $this->storage;
+    }
+
     public function findAll()
     {
         foreach ($this->peoples as [$id, $survived, $pclass, $name, $sex, $age, $sibSp, $parch, $ticket, $fare, $cabin, $embarked]) {
@@ -28,7 +33,7 @@ class AllPeoples
     public function findAllSurvivors(): int
     {
         $survivors = $this->storage->filter(function ($key, Person $value) {
-            return $value->survived == "1";
+            return $value->getSurvived() == "1";
         });
         return count($survivors);
     }
@@ -42,14 +47,14 @@ class AllPeoples
         switch ($sex) {
             case 'male':
                 $maleSurvivors = $this->storage->filter(function ($key, Person $value) {
-                    return $value->survived == "1" && $value->sex == "male";
+                    return $value->getSurvived() == "1" && $value->getSex() == "male";
                 });
                 return count($maleSurvivors);
                 break;
 
             case 'female':
                 $femaleSurvivors = $this->storage->filter(function ($key, Person $value) {
-                    return $value->survived == "1" && $value->sex == "female";
+                    return $value->getSurvived() == "1" && $value->getSex() == "female";
                 });
                 return count($femaleSurvivors);
                 break;
@@ -71,19 +76,19 @@ class AllPeoples
                 switch ($class) {
                     case '1':
                         $maleClass1Survivors = $this->storage->filter(function ($key, Person $value) {
-                            return $value->survived == '1' && $value->sex == "male" && $value->pclass == '1';
+                            return $value->getSurvived() == '1' && $value->getSex() == "male" && $value->getPclass() == '1';
                         });
                         return count($maleClass1Survivors);
                         break;
                     case '2':
                         $maleClass2Survivors = $this->storage->filter(function ($key, Person $value) {
-                            return $value->survived == '1' && $value->sex == "male" && $value->pclass == '2';
+                            return $value->getSurvived() == '1' && $value->getSex() == "male" && $value->getPclass() == '2';
                         });
                         return count($maleClass2Survivors);
                         break;
                     case '3':
                         $maleClass3Survivors = $this->storage->filter(function ($key, Person $value) {
-                            return $value->survived == '1' && $value->sex == "male" && $value->pclass == '3';
+                            return $value->getSurvived() == '1' && $value->getSex() == "male" && $value->getPclass() == '3';
                         });
                         return count($maleClass3Survivors);
                         break;
@@ -99,19 +104,19 @@ class AllPeoples
                 switch ($class) {
                     case '1':
                         $femaleClass1Survivors = $this->storage->filter(function ($key, Person $value) {
-                            return $value->survived == '1' && $value->sex == "female" && $value->pclass == '1';
+                            return $value->getSurvived() == '1' && $value->getSex() == "female" && $value->getPclass() == '1';
                         });
                         return count($femaleClass1Survivors);
                         break;
                     case '2':
                         $femaleClass2Survivors = $this->storage->filter(function ($key, Person $value) {
-                            return $value->survived == '1' && $value->sex == "female" && $value->pclass == '2';
+                            return $value->getSurvived() == '1' && $value->getSex() == "female" && $value->getPclass() == '2';
                         });
                         return count($femaleClass2Survivors);
                         break;
                     case '3':
                         $femaleClass3Survivors = $this->storage->filter(function ($key, Person $value) {
-                            return $value->survived == '1' && $value->sex == "female" && $value->pclass == '3';
+                            return $value->getSurvived() == '1' && $value->getSex() == "female" && $value->getPclass() == '3';
                         });
                         return count($femaleClass3Survivors);
                         break;

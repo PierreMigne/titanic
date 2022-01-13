@@ -10,6 +10,8 @@ use SplSubject;
 
 class Passanger  implements SplSubject
 {
+    public $sex;
+    public $classe;
     public function __construct()
     {
         $this->observers = new SplObjectStorage();
@@ -17,8 +19,16 @@ class Passanger  implements SplSubject
 
     public function setPerson(string $name, string $sex, string $pclass)
     {
-        new Person(name: $name, pclass: $pclass, sex: $sex);
+        $this->person = new Person(name: $name, pclass: $pclass, sex: $sex);
+        $this->sex = $sex;
+        $this->classe = $pclass;
+        $this->notify();
     }
+
+    // public function getSex()
+    // {
+    //     return $this->sex;
+    // }
 
     public function attach(SplObserver $observer): void
     {
