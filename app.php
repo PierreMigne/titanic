@@ -1,6 +1,7 @@
 <?php
 
 use App\AllPeoples;
+use App\observer\ChanceBySex;
 use App\ReadIterator;
 use App\SurvivedPeoples;
 
@@ -16,11 +17,10 @@ $proportionOfSurvivedPeoples = round($nbOfSurvivedPeoples / $nbOfPeoples * 100, 
 
 
 print('La proportion de personnes qui ont survécu dans le Titanic est de ' . $proportionOfSurvivedPeoples . '%' . PHP_EOL);
-
+// $allPeoples->attach(new ChanceBySex);
 
 $nbOfMaleWhoSurvived = $allPeoples->findAllSurvivorsBySex('male');
 $nbOfFemaleWhoSurvived = $allPeoples->findAllSurvivorsBySex('female');
-// $nbOfFemaleWhoSurvived = $allPeoples->findAllFemaleSurvivors();
 
 $proportionOfMaleWhoSurvived = round($nbOfMaleWhoSurvived / $nbOfPeoples * 100, 2);
 $proportionOfFemaleWhoSurvived = round($nbOfFemaleWhoSurvived / $nbOfPeoples * 100, 2);

@@ -4,8 +4,6 @@ namespace App;
 
 use App\model\Person;
 use Ds\Map;
-use Error;
-use ErrorException;
 use Exception;
 
 class AllPeoples
@@ -61,14 +59,6 @@ class AllPeoples
                 break;
         }
     }
-
-    // public function findAllFemaleSurvivors(): int
-    // {
-    //     $femaleSurvivors = $this->storage->filter(function ($key, Person $value) {
-    //         return $value->survived == "1" && $value->sex == "female";
-    //     });
-    //     return count($femaleSurvivors);
-    // }
 
     /***
      * @param string $sex  must be 'male' or 'female'
