@@ -16,7 +16,7 @@ class ChanceBySex implements SplObserver
     public function update(SplSubject $subject): void
     {
         $nbOfPeople = count($this->allPeoples->findAll());
-        if ($subject->sex == 'male') {
+        if ($subject->getSex() == 'male') {
             $maleSurvived = $this->allPeoples->findAllSurvivorsBySex('male');
             echo ('Un homme a ' . round(($maleSurvived / $nbOfPeople) * 100, 2) . '% de chance de survivre sur le titanic' . PHP_EOL);
         } else {

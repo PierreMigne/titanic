@@ -16,8 +16,8 @@ class ChanceBySexAndClass implements SplObserver
     public function update(SplSubject $subject): void
     {
         $nbOfPeople = count($this->allPeoples->findAll());
-        if ($subject->sex == 'male') {
-            switch ($subject->classe) {
+        if ($subject->getSex() == 'male') {
+            switch ($subject->getClass()) {
                 case '1':
                     $maleSurvived = $this->allPeoples->findAllSurvivorsBySexAndClass('male', '1');
                     echo ('Un homme de classe 1 a ' . round(($maleSurvived / $nbOfPeople) * 100, 2) . '% de chance de survivre sur le titanic' . PHP_EOL);
@@ -35,8 +35,8 @@ class ChanceBySexAndClass implements SplObserver
                     throw new Exception("Class must be '1' or '2' or '3' but is '$subject->classe'", 2);
                     break;
             }
-        } else if ($subject->sex == 'female') {
-            switch ($subject->classe) {
+        } else if ($subject->getSex() == 'female') {
+            switch ($subject->getClass()) {
                 case '1':
                     $femaleSurvived = $this->allPeoples->findAllSurvivorsBySexAndClass('female', '1');
                     echo ('Une femme de classe 1 a ' . round(($femaleSurvived / $nbOfPeople) * 100, 2) . '% de chance de survivre sur le titanic' . PHP_EOL);
